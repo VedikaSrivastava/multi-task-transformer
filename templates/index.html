@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Multi-Task Model Demo</title>
+</head>
+<body>
+    <h1>Welcome to the Multi-Task Model Demo</h1>
+    <p>Enter a sentence below to get a prediction. You can choose one of the following tasks:</p>
+    <ul>
+        <li>Classification</li>
+        <li>NER (Named Entity Recognition)</li>
+        <li>Show Embeddings with Padding</li>
+    </ul>
+    
+    <h3>Examples to Try for Classification:</h3>
+    <ul>
+        {% for example in example_texts %}
+            <li>{{ example }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Examples to Try for NER:</h3>
+    <ul>
+        {% for example in example_texts_ner %}
+            <li>{{ example }}</li>
+        {% endfor %}
+    </ul>
+    
+    <form method="POST">
+        <label for="input_text">Input Sentence:</label><br>
+        <input type="text" id="input_text" name="input_text" style="width: 80%;" required><br><br>
+        
+        <label for="task">Select Task:</label>
+        <select id="task" name="task">
+            <option value="classification">Classification</option>
+            <option value="ner">NER</option>
+            <option value="embedding">Show Embeddings with Padding</option>
+        </select><br><br>
+        
+        <input type="submit" value="Predict">
+    </form>
+    
+    {% if result %}
+    <h2>Prediction Result:</h2>
+    <pre>{{ result }}</pre>
+    {% endif %}
+</body>
+</html>
