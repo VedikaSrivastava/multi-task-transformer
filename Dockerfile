@@ -1,5 +1,5 @@
 # python base image
-FROM python:3.12.8
+FROM python:3.10
 
 # working directory in container
 WORKDIR /app
@@ -12,6 +12,7 @@ COPY best_model.pth ./
 COPY code.ipynb ./
 
 # Install dependencies
+RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 RUN pip install jupyter
 
