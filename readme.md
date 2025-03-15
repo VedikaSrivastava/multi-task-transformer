@@ -10,11 +10,8 @@ The demo includes:
 - A Jupyter Notebook (`code.ipynb`) for reviewing and running training/experimental code
 
 
----
+## *[Writeup](writeup.md) file provides detailed explanations regarding architecture choices, training strategies, and additional experiment details*
 
-**Detailed explanations regarding architecture choices, training strategies, and additional experiment details are provided in [writeup](writeup.md) file**
-
----
 
 ## Project Structure
 
@@ -27,13 +24,12 @@ ROOT/
 ├── code.ipynb            # jupyter notebook for training/review purposes
 ├── Dockerfile            # Dockerfile to build the container
 ├── requirements.txt      # list of required python packages
-├── run.sh
+├── run.sh                # docker commands for running scripts
 ├── writeup.md            # detailed strategy of model design
 └── readme.md             # this file
 
 ```
 
----
 ## Instruction to build and run docker image
 
 To simplify evaluation and testing, the entire application is packaged in a Docker container
@@ -45,6 +41,8 @@ Run the following command in project directory to build the Docker image:
 ```
 docker build -t multi-task-model .
 ```
+> *NOTE: Alternatively clone pre-bild dcoker image from using the command `docker pull vedikasrivastavr/multi-task-model`*
+
 
 ### 2. Run the Docker Container
 After building the image, run the container with the following command:
@@ -52,6 +50,7 @@ After building the image, run the container with the following command:
 ```
 docker run -p 5000:5000 -p 8888:8888 multi-task-model
 ```
+
 
 This command maps:
 - Port 5000: For the Flask web application
